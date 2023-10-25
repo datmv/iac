@@ -1,8 +1,8 @@
 pipeline{
     agent any
     parameters{
-        string defaultValue: 'dat-1' , description: 'choose name' , name: 'name'
-        string defaultValue: 'dat-2' , description: 'choose name' , name: 'name'
+        string defaultValue: 'dat-1' , description: 'choose name-1' , name: 'name'
+        string defaultValue: 'dat-2' , description: 'choose name-2' , name: 'name'
     }
     stages{
         stage("demo"){
