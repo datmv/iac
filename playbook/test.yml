@@ -1,0 +1,11 @@
+---
+- name: Execute a script.
+  hosts: apps
+  tasks:
+    - name: Execute the script
+      register: funcoutput
+      #script: ../script/func.sh
+      shell: echo "demo"
+      
+    - debug:
+        var: funcoutput.stdout_lines
