@@ -4,13 +4,25 @@ pipeline {
         choice choices: ['dat-1', 'dat-2'], name: 'Name'
     }
     stages {
-        stage('Show name') {
+        stage('test') {
             steps {
-                    if (env.name == 'dat-1') {
-                        echo 'Hello dat-1'
-                    }  else {
-                        echo 'Hello dat-2'
+                sh 'echo hello'
+            }
+        }
+        stage('test1') {
+            steps {
+                sh 'echo $TEST'
+            }
+        }
+        stage('test3') {
+            steps {
+                script {
+                    if (env.choices == 'dat-1') {
+                        echo 'I only execute on the master branch'
+                    } else {
+                        echo 'I execute elsewhere'
                     }
+                }
             }
         }
     }
