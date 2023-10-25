@@ -5,10 +5,13 @@ pipeline{
         string defaultValue: 'dat-2' , description: 'choose name-2' , name: 'name'
     }
     stages{
-        stage("demo"){
-            steps{
-                echo "xin chao ${name}"
+        stage("choose name"){
+            if{name == dat-1}
+                echo 'Helle dat-1'
+            }   else {
+                sh "echo 'Hello dat-2!'"
             }
+            
         }
     }
 }
