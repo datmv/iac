@@ -6,11 +6,11 @@ pipeline{
                 sh "cd /home/jenkins/iac && git pull"
             }
         }
-        stage("show inventory"){
+        stage("Execute playbook"){
             steps{
                 ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible', 
                 inventory: '/home/jenkins/iac/project/tests/inventory', 
-                playbook: '/home/jenkins/iac/playbook/test.yml' 
+                playbook: '/home/jenkins/iac/playbook/test.yml'
             }
         }
 
