@@ -4,12 +4,12 @@ pipeline {
         choice choices: ['node-1', 'node-2'], name: 'Name'
     }
     stages {
-        stage('Clone Project') {
+        stage('Gits') {
             steps {
                 sh 'cd /home/jenkins/iac && git pull'
             }
         }
-        stage('choose node name') {
+        stage('Choose node') {
             steps {
                 script {
                     if (env.name == 'node-1') {
@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         }
-        stage('Ansible node check'){
+        stage('Ansible-playbook'){
             steps{
                 ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible', 
                 inventory: '/home/jenkins/iac/project/tests/inventory', 
