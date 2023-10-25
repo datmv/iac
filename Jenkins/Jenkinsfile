@@ -13,6 +13,15 @@ pipeline{
                 playbook: '/home/jenkins/iac/playbook/test.yml' 
             }
         }
-
+    }
+    parameters{
+        string defaultValue: 'dat-1' , description: 'choose name' , name: 'name'
+    }
+    stages{
+        stage("demo"){
+            steps{
+                echo "xin chao ${name}"
+            }
+        }
     }
 }
