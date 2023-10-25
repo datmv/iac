@@ -3,14 +3,14 @@ pipeline{
     stages{
         stage("clone project"){
             steps{
-                sh "cd /home/jenkins/jenkins-ansible/ && git pull"
+                sh "cd /home/jenkins/iac && git pull"
             }
         }
         stage("Execute playbook"){
             steps{
                 ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible', 
-                inventory: '/home/jenkins/jenkins-ansible/iac/project/tests/inventory', 
-                playbook: '/home/jenkins/jenkins-ansible/iac/playbook/test.yml'
+                inventory: '/home/jenkins/iac/project/tests/inventory', 
+                playbook: '/home/jenkins/iac/playbook/test.yml'
             }
         }
 
