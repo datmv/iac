@@ -14,14 +14,19 @@ pipeline {
                 script {
                     if (env.name == 'node-1') {
                         echo 'Dung node-1 roi'
-                        ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible', 
-                        inventory: '/home/jenkins/iac/project/tests/inventory', 
-                        playbook: '/home/jenkins/iac/playbook/test.yml'
+                        
                     } else {
                         echo 'Chon sai roi'
                     }
                 }
             }
+        stage('Ansible node check'){
+            steps{
+                ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible', 
+                inventory: '/home/jenkins/iac/project/tests/inventory', 
+                playbook: '/home/jenkins/iac/playbook/test.yml'
+            }
+        }
         }
     }
 }
