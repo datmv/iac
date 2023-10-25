@@ -12,7 +12,7 @@ pipeline {
         stage('choose node name') {
             steps {
                 script {
-                    if (env.choice == 'node-1') {
+                    if (env.name == 'node-1') {
                         echo 'Dung node-1 roi'
                     } else {
                         echo 'Chon sai roi'
