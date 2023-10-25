@@ -7,7 +7,7 @@ pipeline {
         stage('Show name') {
             steps {
                 script {
-                    if (choice.name == 'dat-1') {
+                    if (env.name == 'dat-1') {
                         echo 'Hello dat-1'
                     }  else {
                         sh "echo dat-2!'"
