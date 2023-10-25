@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         choice choices: ['node-1', 'node-2'], name: 'Name'
-    }
+    }    
     stages {
         stage('Gits') {
             steps {
@@ -13,10 +13,10 @@ pipeline {
             steps {
                 script {
                     if (env.name == 'node-1') {
-                        echo 'Dung node-1 roi'
+                        echo 'true'
                         
                     } else {
-                        echo 'Chon sai roi'
+                        echo 'false'
                     }
                 }
             }
