@@ -1,18 +1,12 @@
 pipeline{
-    agent any
+    stage any
+        parameters {
+            string defaultValue: 'DC', name: 'DC'
+            choice choices: ['node-1'], name: 'node-1'
+    }
     stages{
-        stage("clone project"){
-            steps{
-                sh "cd /home/jenkins/iac && git pull"
-            }
+        stage{
+            echo "hi ${node-1}"
         }
-        stage("Execute playbook"){
-            steps{
-                ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible', 
-                inventory: '/home/jenkins/iac/project/tests/inventory', 
-                playbook: '/home/jenkins/iac/playbook/test.yml'
-            }
-        }
-
     }
 }
