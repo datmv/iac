@@ -1,12 +1,11 @@
 pipeline{
     agent any
-    parameters{
-        string defaultValue: 'dat-1' , description: 'choose name-1' , name: 'name'
-        string defaultValue: 'dat-2' , description: 'choose name-2' , name: 'name'
+    parameters {
+        choice choices: ['dat-1', 'dat-2'], name: 'Name'
     }
     stages{
         stage("choose name"){
-            if{name == dat-1}
+            if(${name} == dat-1){
                 echo 'Helle dat-1'
             }   else {
                 sh "echo 'Hello dat-2!'"
