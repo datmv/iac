@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Clone Project') {
             steps {
-                sh 'cd /home/jenkins/iac && git pul'
+                sh 'cd /home/jenkins/iac && git pull'
             }
         }
         stage('choose node name') {
