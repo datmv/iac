@@ -10,10 +10,5 @@ pipeline{
                 echo "xin chao ${name}"
             }
         }
-                stage("demo"){
-            steps{
-                echo "xin chao ${name}"
-            }
-        }
     }
 }
