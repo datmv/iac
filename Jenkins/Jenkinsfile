@@ -1,16 +1,19 @@
-pipeline{
+pipeline {
     agent any
     parameters {
         choice choices: ['dat-1', 'dat-2'], name: 'Name'
     }
-    stages{
-        stage("choose name"){
-            if(${params.name} == 'dat-1'){
-                echo 'Helle dat-1'
-            }   else {
-                sh "echo 'Hello dat-2!'"
+    stages {
+        stage('Show name') {
+            steps {
+                script {
+                    if (choice.name == 'dat-1') {
+                        echo 'Hello dat-1'
+                    }  else {
+                        sh "echo dat-2!'"
+                    }
+                    }
             }
-            
         }
     }
 }
