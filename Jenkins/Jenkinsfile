@@ -1,26 +1,21 @@
 pipeline {
     agent any
     parameters {
-        choice choices: ['dat-1', 'dat-2'], name: 'Name'
+        choice choices: ['node-1', 'node-2'], name: 'Name'
     }
     stages {
-        stage('test') {
+        stage('Clone Project') {
             steps {
-                sh 'echo hello'
+                sh 'cd /home/jenkins/iac && git pul'
             }
         }
-        stage('test1') {
-            steps {
-                sh 'echo $TEST'
-            }
-        }
-        stage('test3') {
+        stage('choose node name') {
             steps {
                 script {
-                    if (env.choices == 'dat-1') {
-                        echo 'I only execute on the master branch'
+                    if (env.choices == 'node-1') {
+                        echo 'Dung node-1 roi'
                     } else {
-                        echo 'I execute elsewhere'
+                        echo 'Chon sai roi'
                     }
                 }
             }
