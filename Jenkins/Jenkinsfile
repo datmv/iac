@@ -5,7 +5,7 @@ pipeline{
     }
     stages{
         stage("choose name"){
-            if(${name} == dat-1){
+            if(${params.name} == 'dat-1'){
                 echo 'Helle dat-1'
             }   else {
                 sh "echo 'Hello dat-2!'"
