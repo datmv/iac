@@ -20,13 +20,13 @@ pipeline {
                     }
                 }
             }
+        }
         stage('Ansible node check'){
             steps{
                 ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible', 
                 inventory: '/home/jenkins/iac/project/tests/inventory', 
                 playbook: '/home/jenkins/iac/playbook/test.yml'
             }
-        }
         }
     }
 }
